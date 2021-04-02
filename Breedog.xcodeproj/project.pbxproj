@@ -20,6 +20,9 @@
 		F34493442616F7E600AE0989 /* ListBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34493432616F7E600AE0989 /* ListBackgroundView.swift */; };
 		F34493472616F81700AE0989 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34493462616F81700AE0989 /* Extensions.swift */; };
 		F344934E2617194500AE0989 /* DogBreedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F344934D2617194500AE0989 /* DogBreedVC.swift */; };
+		F34493512617197F00AE0989 /* DogBreedListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34493502617197F00AE0989 /* DogBreedListVC.swift */; };
+		F3449355261719C700AE0989 /* DogBreedListCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3449353261719C700AE0989 /* DogBreedListCVCell.swift */; };
+		F3449356261719C700AE0989 /* DogBreedListCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3449354261719C700AE0989 /* DogBreedListCVCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		F34493432616F7E600AE0989 /* ListBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBackgroundView.swift; sourceTree = "<group>"; };
 		F34493462616F81700AE0989 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F344934D2617194500AE0989 /* DogBreedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedVC.swift; sourceTree = "<group>"; };
+		F34493502617197F00AE0989 /* DogBreedListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedListVC.swift; sourceTree = "<group>"; };
+		F3449353261719C700AE0989 /* DogBreedListCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedListCVCell.swift; sourceTree = "<group>"; };
+		F3449354261719C700AE0989 /* DogBreedListCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DogBreedListCVCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				F344934D2617194500AE0989 /* DogBreedVC.swift */,
+				F34493502617197F00AE0989 /* DogBreedListVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -156,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				F34493432616F7E600AE0989 /* ListBackgroundView.swift */,
+				F3449353261719C700AE0989 /* DogBreedListCVCell.swift */,
+				F3449354261719C700AE0989 /* DogBreedListCVCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -225,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3449356261719C700AE0989 /* DogBreedListCVCell.xib in Resources */,
 				F344930A2616A97100AE0989 /* LaunchScreen.storyboard in Resources */,
 				F34493072616A97100AE0989 /* Assets.xcassets in Resources */,
 				F34493052616A97000AE0989 /* Main.storyboard in Resources */,
@@ -239,8 +249,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F34492FE2616A97000AE0989 /* AppDelegate.swift in Sources */,
+				F34493512617197F00AE0989 /* DogBreedListVC.swift in Sources */,
 				F34493472616F81700AE0989 /* Extensions.swift in Sources */,
 				F344931F2616E1DA00AE0989 /* AbstractCollectionListController.swift in Sources */,
+				F3449355261719C700AE0989 /* DogBreedListCVCell.swift in Sources */,
 				F34493442616F7E600AE0989 /* ListBackgroundView.swift in Sources */,
 				F34493232616E22700AE0989 /* AbstractCollectionCell.swift in Sources */,
 				F34493272616E2B300AE0989 /* AbstractFlowLayout.swift in Sources */,

@@ -53,3 +53,24 @@ class AbstractFlowLayout: UICollectionViewFlowLayout {
         return CGSize(width: (width - ((rows-1) * self.minimumLineSpacing))/rows, height: self.height)
     }
 }
+
+class DogBreedCellLayout: AbstractFlowLayout {
+    
+    // MARK: - Override variables
+    override func initView() {
+        super.initView()
+        scrollDirection = .vertical
+    }
+    
+    override var aspectRatio: CGFloat {
+        return 0.5
+    }
+    
+    override var rows: CGFloat {
+        return 2.0
+    }
+    
+    override var minLineSpace: CGFloat {
+        return 20
+    }
+}
