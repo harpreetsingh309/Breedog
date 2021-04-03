@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,10 @@
 		F34493512617197F00AE0989 /* DogBreedListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34493502617197F00AE0989 /* DogBreedListVC.swift */; };
 		F3449355261719C700AE0989 /* DogBreedListCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3449353261719C700AE0989 /* DogBreedListCVCell.swift */; };
 		F3449356261719C700AE0989 /* DogBreedListCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3449354261719C700AE0989 /* DogBreedListCVCell.xib */; };
+		F34493592617315500AE0989 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34493582617315500AE0989 /* APIManager.swift */; };
+		F344935C261733FF00AE0989 /* BreedFetchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F344935B261733FF00AE0989 /* BreedFetchViewModel.swift */; };
+		F3E3E646261813BF00A96213 /* BreedsListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E3E645261813BF00A96213 /* BreedsListResponse.swift */; };
+		F3E3E64B261827E200A96213 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F3E3E64A261827E200A96213 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,9 @@
 		F34493502617197F00AE0989 /* DogBreedListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedListVC.swift; sourceTree = "<group>"; };
 		F3449353261719C700AE0989 /* DogBreedListCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedListCVCell.swift; sourceTree = "<group>"; };
 		F3449354261719C700AE0989 /* DogBreedListCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DogBreedListCVCell.xib; sourceTree = "<group>"; };
+		F34493582617315500AE0989 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		F344935B261733FF00AE0989 /* BreedFetchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedFetchViewModel.swift; sourceTree = "<group>"; };
+		F3E3E645261813BF00A96213 /* BreedsListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsListResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3E3E64B261827E200A96213 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +163,7 @@
 		F344933C2616F02600AE0989 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F344935B261733FF00AE0989 /* BreedFetchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -173,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				F344933F2616F22000AE0989 /* APIEndPoint.swift */,
+				F34493582617315500AE0989 /* APIManager.swift */,
+				F3E3E645261813BF00A96213 /* BreedsListResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,6 +204,9 @@
 			dependencies = (
 			);
 			name = Breedog;
+			packageProductDependencies = (
+				F3E3E64A261827E200A96213 /* SDWebImage */,
+			);
 			productName = Breedog;
 			productReference = F34492FA2616A97000AE0989 /* Breedog.app */;
 			productType = "com.apple.product-type.application";
@@ -220,6 +234,9 @@
 				Base,
 			);
 			mainGroup = F34492F12616A97000AE0989;
+			packageReferences = (
+				F3E3E649261827E200A96213 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = F34492FB2616A97000AE0989 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -250,6 +267,8 @@
 			files = (
 				F34492FE2616A97000AE0989 /* AppDelegate.swift in Sources */,
 				F34493512617197F00AE0989 /* DogBreedListVC.swift in Sources */,
+				F344935C261733FF00AE0989 /* BreedFetchViewModel.swift in Sources */,
+				F3E3E646261813BF00A96213 /* BreedsListResponse.swift in Sources */,
 				F34493472616F81700AE0989 /* Extensions.swift in Sources */,
 				F344931F2616E1DA00AE0989 /* AbstractCollectionListController.swift in Sources */,
 				F3449355261719C700AE0989 /* DogBreedListCVCell.swift in Sources */,
@@ -258,6 +277,7 @@
 				F34493272616E2B300AE0989 /* AbstractFlowLayout.swift in Sources */,
 				F34493002616A97000AE0989 /* SceneDelegate.swift in Sources */,
 				F344931B2616E1A800AE0989 /* AbstractController.swift in Sources */,
+				F34493592617315500AE0989 /* APIManager.swift in Sources */,
 				F344934E2617194500AE0989 /* DogBreedVC.swift in Sources */,
 				F34493402616F22000AE0989 /* APIEndPoint.swift in Sources */,
 			);
@@ -463,6 +483,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F3E3E649261827E200A96213 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F3E3E64A261827E200A96213 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3E3E649261827E200A96213 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F34492F22616A97000AE0989 /* Project object */;
 }

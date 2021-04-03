@@ -71,7 +71,7 @@ class AbstractCollectionListController: UICollectionViewController, UICollection
     
     // MARK: - Setup collectionview properties
     private func setupCollectionView() {
-        collectionView?.backgroundColor = .clear
+        collectionView?.backgroundColor = .white
         collectionView?.setCollectionViewLayout(cellClass.flowLayout(margin), animated: true)
         if isNibUsed {
             collectionView?.register(UINib.init(nibName: String(describing: cellClass), bundle: nil), forCellWithReuseIdentifier: reuseId)
@@ -80,6 +80,7 @@ class AbstractCollectionListController: UICollectionViewController, UICollection
         }
         collectionView.showsHorizontalScrollIndicator = true
         collectionView.indicatorStyle = .black
+        collectionView.isPagingEnabled = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView?.contentInset = .init(top: 0, left: margin, bottom: 0, right: margin)
         collectionView?.alwaysBounceVertical = false

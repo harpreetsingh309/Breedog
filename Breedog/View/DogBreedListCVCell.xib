@@ -29,7 +29,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="mdj-gQ-Gp1">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="mdj-gQ-Gp1">
                                 <rect key="frame" x="5" y="30" width="86" height="81"/>
                             </imageView>
                         </subviews>
@@ -54,6 +54,10 @@
                 <constraint firstItem="2TY-37-QS8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="wTj-B9-YFp"/>
             </constraints>
             <size key="customSize" width="100" height="120"/>
+            <connections>
+                <outlet property="breedImage" destination="mdj-gQ-Gp1" id="37f-Yr-QXX"/>
+                <outlet property="breedTitle" destination="noL-FC-Sp9" id="a1L-NF-XTW"/>
+            </connections>
             <point key="canvasLocation" x="104.34782608695653" y="99.776785714285708"/>
         </collectionViewCell>
     </objects>
