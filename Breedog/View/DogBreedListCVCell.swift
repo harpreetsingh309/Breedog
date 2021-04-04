@@ -22,10 +22,7 @@ class DogBreedListCVCell: AbstractCollectionCell {
         if let newModel = model as? BreedImage {
             breedTitle.text = newModel.breed.uppercased()
             if let url = URL(string: newModel.image) {
-                print("image >> ",newModel.image)
-//                breedImage.loadImage(fromURL: url, placeholderImage: "logo")
                 breedImage.sd_setImage(with: url, placeholderImage: UIImage(named: "logo"))
-
             }
         }
     }

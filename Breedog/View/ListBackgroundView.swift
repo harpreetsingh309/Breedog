@@ -35,31 +35,6 @@ class ListBackgroundView: UIView {
         }
     }
     
-    internal var searchText: String? {
-        get {
-            return searchLabel.text!
-        }
-        set {
-            let isValue = newValue != nil && newValue?.count != 0
-            messageLabel.isHidden = isValue
-        }
-    }
-    
-    private var _searchLabel: UILabel?
-    private var searchLabel: UILabel {
-        get {
-            if _searchLabel == nil {
-                _searchLabel = UILabel()
-                _searchLabel?.textColor = .black
-                _searchLabel?.font = UIFont(name: "GillSans", size: 20.0)
-            }
-            return _searchLabel!
-        }
-        set {
-            _searchLabel = newValue
-        }
-    }
-    
     private var _messageLabel: UILabel?
     private var messageLabel: UILabel {
         get {

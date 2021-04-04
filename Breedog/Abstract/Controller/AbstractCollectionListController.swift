@@ -30,7 +30,7 @@ class AbstractCollectionListController: UICollectionViewController, UICollection
     internal var page = 0
     internal var isPageAvailable = false
     internal var items: Array<Any>! = []
-    fileprivate var isConnection = true
+    fileprivate var isConnection = Reachability.isConnectedToNetwork()
     
     //Stored variables
     internal var isNibUsed: Bool {
@@ -86,28 +86,7 @@ class AbstractCollectionListController: UICollectionViewController, UICollection
         collectionView?.alwaysBounceVertical = false
         collectionView?.alwaysBounceHorizontal = false
         collectionView?.backgroundView = customBackgroundView
-        collectionView?.addSubview(refreshControl)
         collectionView?.keyboardDismissMode = .onDrag
-    }
-    
-    // MARK: setter getters
-    private var refreshControl1: UIRefreshControl!
-    internal var refreshControl: UIRefreshControl {
-        get {
-            if refreshControl1 == nil {
-                refreshControl1 = UIRefreshControl()
-                refreshControl1.addTarget(self, action: #selector(AbstractCollectionListController.refresh), for: UIControl.Event.valueChanged)
-            }
-            return refreshControl1
-        }
-        set {
-            refreshControl1 = newValue
-        }
-    }
-    
-    //End refreshing
-    private func endRefreshing() {
-        refreshControl.endRefreshing()
     }
     
     //Refresh list
@@ -183,7 +162,6 @@ class AbstractCollectionListController: UICollectionViewController, UICollection
     private func requestItemsForPage(_ type: RequestPageType) {
         if searchQuery.count != 0 && type == .first {
             customBackgroundView.isVisible = true
-            customBackgroundView.searchText = searchQuery
             items.removeAll()
             collectionView!.reloadData()
         } else {
@@ -194,10 +172,8 @@ class AbstractCollectionListController: UICollectionViewController, UICollection
             noItemsText = _noItemsText
             weak var weakSelf = self
             requestItems(searchQuery, page: page, completion: {(items, error, pageAvailable) in
-                weakSelf?.customBackgroundView.searchText = nil
                 weakSelf?.isLoading = false
                 weakSelf?.isPageAvailable = pageAvailable!
-                weakSelf?.endRefreshing()
                 if error == nil && items != nil {
                     if type == .first {
                         weakSelf?.items.removeAll()
@@ -214,10 +190,8 @@ class AbstractCollectionListController: UICollectionViewController, UICollection
                 }
             })
         } else {//if no internet
-            customBackgroundView.searchText = nil
             isLoading = false
             isPageAvailable = false
-            endRefreshing()
             noItemsText = noInternetText
             items.removeAll()
             collectionView!.reloadData()

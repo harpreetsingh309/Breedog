@@ -8,7 +8,6 @@
 import Foundation
     
 enum APIEndPoint {
-    case randomImageFromAllDogsCollection
     case randomImageForBreed(String)
     case listAllBreeds
     
@@ -18,8 +17,6 @@ enum APIEndPoint {
     
     var stringValue: String {
         switch self {
-        case .randomImageFromAllDogsCollection:
-            return "https://dog.ceo/api/breeds/image/random"
         case .randomImageForBreed(let breed):
             return "https://dog.ceo/api/breed/\(breed)/images/random"
         case .listAllBreeds:

@@ -9,35 +9,20 @@ import Foundation
 
 class BreedFetchViewModel {
     
-//    private let apiManager: APIManager
-//    private let endPoint: APIEndPoint
-    var breeds: [String] = []
-    var allBreedImage: [BreedImage] = []
-//    init(apiManager: APIManager, endPoint: APIEndPoint) {
-//        self.apiManager = apiManager
-//        self.endPoint = endPoint
-//    }
-    
-//    init() {
-//        APIManager.requestBreedsList { (arr, err) in
-//            self.breeds = arr
-//            print("got array")
-//        }
-//    }
-    
+    //Dependency Injection
+    private let apiManager = APIManager()
+
     func fetchAllBreeds(completionHandler: @escaping ([BreedImage], Error?) -> Void) {
-        
+        var allBreedImage: [BreedImage] = []
         let dispatchGroup = DispatchGroup()
-        APIManager.requestBreedsList { (breeds, error) in
-            if error == nil {
-                self.breeds = breeds
-                self.breeds.forEach { (breed) in
-                    print("started")
+        apiManager.requestBreedsList { (breeds, error) in
+            if breeds.count > 0 && error == nil {
+                breeds.forEach { (breed) in
                     dispatchGroup.enter()
-                    APIManager.requestRandomImage(breed: breed) { (image, error) in
+                    self.apiManager.requestRandomImage(breed: breed) { (image, error) in
                         if let breedModel = image, error == nil {
                             let breedImage = BreedImage(image: breedModel.message, breed: breed)
-                            self.allBreedImage.append(breedImage)
+                            allBreedImage.append(breedImage)
                         }
                         dispatchGroup.leave()
                     }
@@ -46,14 +31,13 @@ class BreedFetchViewModel {
         }
         sleep(2)
         dispatchGroup.notify(queue: .main) {
-            print("end")
-            completionHandler(self.allBreedImage, nil)
+            completionHandler(allBreedImage, nil)
         }
         dispatchGroup.wait()
     }
     
     func fetchRandomImageForBreed(breed: String, completionHandler: @escaping (BreedImage, Error?) -> Void) {
-        APIManager.requestRandomImage(breed: breed) { (image, error) in
+        apiManager.requestRandomImage(breed: breed) { (image, error) in
             if let breedModel = image, error == nil {
                 let breedImage = BreedImage(image: breedModel.message, breed: breed)
                 completionHandler(breedImage, nil)

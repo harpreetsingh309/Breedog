@@ -8,80 +8,70 @@
 import UIKit
 
 class APIManager {
-    
-    var allBreedsArray: [String]?
-    
-    func getDataFromServer<T:Decodable>(_ urlString: String, completion: @escaping (T) -> ()) {
-        if let url = URL(string: urlString) {
-//            showActivityIndicator()
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) {[weak self] (data, response, error) in
-                if error != nil {
-//                    self?.hideActivityIndicator()
-//                    self?.showErrorAlert()
-                    return
-                }
-                if let safeData = data {
-//                    self?.hideActivityIndicator()
-                    let decoder = JSONDecoder()
-                    do {
-                        let decodedData = try decoder.decode(T.self, from: safeData)
-                        if let dict = try JSONSerialization.jsonObject(with: safeData) as? [String:Any] {
-                            self?.allBreedsArray = dict.keys.sorted()
-                            print(self?.allBreedsArray)
-                        }
-                        completion(decodedData)
-                    } catch {
-//                        self?.showErrorAlert()
-                    }
-                }
-            }
-            task.resume()
-        } else {
-//            showErrorAlert()
-        }
-    }
-    
-     class func requestBreedsList(completionHandler: @escaping ([String], Error?) -> Void) {
-         let task = URLSession.shared.dataTask(with: APIEndPoint.listAllBreeds.url) { (data, response, error) in
+
+    private var activityView: UIActivityIndicatorView?
+
+    // MARK:- API Calls
+    func requestBreedsList(completionHandler: @escaping ([String], Error?) -> Void) {
+        showActivityIndicator()
+        URLSession.shared.dataTask(with: APIEndPoint.listAllBreeds.url) {[weak self] (data, response, error) in
              guard let data = data else {
                  completionHandler([], error)
                  return
              }
              let decoder = JSONDecoder()
-             let breedsResponse = try! decoder.decode(BreedsListResponse.self, from: data)
-             let breeds = breedsResponse.message.keys.map({$0})
-             completionHandler(breeds, nil)
-             
-         }
-         task.resume()
+            do {
+                let breedsResponse = try decoder.decode(BreedsListResponse.self, from: data)
+                let breeds = breedsResponse.message.keys.map({$0})
+                completionHandler(breeds, nil)
+            } catch {
+                self?.showErrorAlert()
+            }
+            self?.hideActivityIndicator()
+         }.resume()
      }
      
-     class func requestRandomImage(breed: String, completionHandler: @escaping (DogImage?, Error?) -> Void) {
-         let randomImageEndpoint = APIEndPoint.randomImageForBreed(breed).url
-         let task = URLSession.shared.dataTask(with: randomImageEndpoint) { (data, response, error) in
-             guard let data = data else {
-                 completionHandler(nil, error)
-                 return
-             }
-             
-             let decoder = JSONDecoder()
-             let imageData = try! decoder.decode(DogImage.self, from: data)
-//             print(imageData)
-             completionHandler(imageData, nil)
-         }
-         task.resume()
-     }
-     
-     class func requestImageFile(url: URL, completionHandler: @escaping (UIImage?, Error?) -> Void) {
-         let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-             guard let data = data else {
-                 completionHandler(nil, error)
-                 return
-             }
-             let downloadedImage = UIImage(data: data)
-             completionHandler(downloadedImage, nil)
-         })
-         task.resume()
-     }
+    func requestRandomImage(breed: String, completionHandler: @escaping (DogImage?, Error?) -> Void) {
+        let randomImageEndpoint = APIEndPoint.randomImageForBreed(breed).url
+        URLSession.shared.dataTask(with: randomImageEndpoint) {[weak self] (data, response, error) in
+            guard let data = data else {
+                completionHandler(nil, error)
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let imageData = try decoder.decode(DogImage.self, from: data)
+                completionHandler(imageData, nil)
+            } catch {
+                self?.showErrorAlert()
+            }
+        }.resume()
+    }
+    
+    // MARK: Alert
+    private func showErrorAlert() {
+        DispatchQueue.dispatch_async_main {
+            Alert.showAlert(message: ErrorConstants.serverError)
+        }
+    }
+
+    // MARK:-  Activity Indicator
+    private func showActivityIndicator() {
+        self.activityView = UIActivityIndicatorView(style: .large)
+        self.activityView?.color = .black
+        DispatchQueue.dispatch_async_main {
+            self.activityView!.center = UIApplication.scene.view.center
+            UIApplication.scene.view.addSubview(self.activityView!)
+            UIApplication.scene.view.bringSubviewToFront(self.activityView!)
+            self.activityView!.startAnimating()
+        }
+    }
+    
+    private func hideActivityIndicator(){
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+            self.activityView?.stopAnimating()
+            self.activityView?.removeFromSuperview()
+            self.activityView = nil
+        }
+    }
 }

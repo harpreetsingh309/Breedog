@@ -60,16 +60,6 @@ extension String {
     }
 }
 
-//MARK:- Date
-extension Date {
-    
-    func string(_ format: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        return dateFormatter.string(from: self)
-    }
-}
-
 //MARK:- UIView
 extension UIView {
     

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F30A3AA32619551E00521F43 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30A3AA22619551E00521F43 /* Alert.swift */; };
+		F30A3AA62619556700521F43 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30A3AA52619556700521F43 /* Constants.swift */; };
+		F30A3AA9261955C900521F43 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30A3AA8261955C900521F43 /* Reachability.swift */; };
+		F30A3AB42619699500521F43 /* DogBreedCellLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30A3AB32619699500521F43 /* DogBreedCellLayout.swift */; };
 		F34492FE2616A97000AE0989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34492FD2616A97000AE0989 /* AppDelegate.swift */; };
 		F34493002616A97000AE0989 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34492FF2616A97000AE0989 /* SceneDelegate.swift */; };
 		F34493052616A97000AE0989 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F34493032616A97000AE0989 /* Main.storyboard */; };
@@ -30,6 +34,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F30A3AA22619551E00521F43 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		F30A3AA52619556700521F43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F30A3AA8261955C900521F43 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		F30A3AB32619699500521F43 /* DogBreedCellLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedCellLayout.swift; sourceTree = "<group>"; };
 		F34492FA2616A97000AE0989 /* Breedog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Breedog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34492FD2616A97000AE0989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F34492FF2616A97000AE0989 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +111,9 @@
 			isa = PBXGroup;
 			children = (
 				F34493462616F81700AE0989 /* Extensions.swift */,
+				F30A3AA22619551E00521F43 /* Alert.swift */,
+				F30A3AA52619556700521F43 /* Constants.swift */,
+				F30A3AA8261955C900521F43 /* Reachability.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -184,6 +195,7 @@
 				F344933F2616F22000AE0989 /* APIEndPoint.swift */,
 				F34493582617315500AE0989 /* APIManager.swift */,
 				F3E3E645261813BF00A96213 /* BreedsListResponse.swift */,
+				F30A3AB32619699500521F43 /* DogBreedCellLayout.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -266,6 +278,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F34492FE2616A97000AE0989 /* AppDelegate.swift in Sources */,
+				F30A3AB42619699500521F43 /* DogBreedCellLayout.swift in Sources */,
+				F30A3AA62619556700521F43 /* Constants.swift in Sources */,
 				F34493512617197F00AE0989 /* DogBreedListVC.swift in Sources */,
 				F344935C261733FF00AE0989 /* BreedFetchViewModel.swift in Sources */,
 				F3E3E646261813BF00A96213 /* BreedsListResponse.swift in Sources */,
@@ -278,7 +292,9 @@
 				F34493002616A97000AE0989 /* SceneDelegate.swift in Sources */,
 				F344931B2616E1A800AE0989 /* AbstractController.swift in Sources */,
 				F34493592617315500AE0989 /* APIManager.swift in Sources */,
+				F30A3AA9261955C900521F43 /* Reachability.swift in Sources */,
 				F344934E2617194500AE0989 /* DogBreedVC.swift in Sources */,
+				F30A3AA32619551E00521F43 /* Alert.swift in Sources */,
 				F34493402616F22000AE0989 /* APIEndPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
