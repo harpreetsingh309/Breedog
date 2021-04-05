@@ -16,8 +16,9 @@ class BreedFetchViewModel {
         var allBreedImage: [BreedImage] = []
         let dispatchGroup = DispatchGroup()
         apiManager.requestBreedsList { (breeds, error) in
-            if breeds.count > 0 && error == nil {
-                breeds.forEach { (breed) in
+            let uniqueArray = Set(breeds.map { $0 })    // Set will remove redundancy in array
+            if uniqueArray.count > 0 && error == nil {
+                uniqueArray.forEach { (breed) in
                     dispatchGroup.enter()
                     self.apiManager.requestRandomImage(breed: breed) { (image, error) in
                         if let breedModel = image, error == nil {
