@@ -73,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		104C3E7228FD4CCD006EEC33 /* ServiceManager */ = {
+			isa = PBXGroup;
+			children = (
+				F344933F2616F22000AE0989 /* APIEndPoint.swift */,
+				F34493582617315500AE0989 /* APIManager.swift */,
+			);
+			path = ServiceManager;
+			sourceTree = "<group>";
+		};
 		F34492F12616A97000AE0989 = {
 			isa = PBXGroup;
 			children = (
@@ -94,20 +103,21 @@
 			children = (
 				F34492FD2616A97000AE0989 /* AppDelegate.swift */,
 				F34492FF2616A97000AE0989 /* SceneDelegate.swift */,
+				104C3E7228FD4CCD006EEC33 /* ServiceManager */,
 				F344933E2616F03900AE0989 /* Model */,
 				F344933D2616F03300AE0989 /* View */,
 				F344933C2616F02600AE0989 /* ViewModel */,
 				F344933B2616F00E00AE0989 /* Controller */,
 				F34493182616BA8500AE0989 /* Abstract */,
 				F34493162616BA6600AE0989 /* Storyboard */,
-				F34493152616BA5100AE0989 /* Utilities */,
+				F34493152616BA5100AE0989 /* Utils */,
 				F34493062616A97100AE0989 /* Assets.xcassets */,
 				F344930B2616A97100AE0989 /* Info.plist */,
 			);
 			path = Breedog;
 			sourceTree = "<group>";
 		};
-		F34493152616BA5100AE0989 /* Utilities */ = {
+		F34493152616BA5100AE0989 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				F34493462616F81700AE0989 /* Extensions.swift */,
@@ -115,7 +125,7 @@
 				F30A3AA52619556700521F43 /* Constants.swift */,
 				F30A3AA8261955C900521F43 /* Reachability.swift */,
 			);
-			path = Utilities;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		F34493162616BA6600AE0989 /* Storyboard */ = {
@@ -192,8 +202,6 @@
 		F344933E2616F03900AE0989 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F344933F2616F22000AE0989 /* APIEndPoint.swift */,
-				F34493582617315500AE0989 /* APIManager.swift */,
 				F3E3E645261813BF00A96213 /* BreedsListResponse.swift */,
 				F30A3AB32619699500521F43 /* DogBreedCellLayout.swift */,
 			);
