@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: Custom delegate for select/unselect cell
-protocol CollectionCellDelegate: class {
+protocol CollectionCellDelegate: AnyObject {
     func updateCell()
     func updateModel(_ model: AnyObject, cell: AbstractCollectionCell)
 }

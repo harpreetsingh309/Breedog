@@ -10,7 +10,7 @@ import UIKit
 public let itemsPerPage = 20
 public let preloadAtItem = 10
 
-protocol ListControlDelegate: class {
+protocol ListControlDelegate: AnyObject {
     func updateListModel(_ model: AnyObject?)
 }
 
